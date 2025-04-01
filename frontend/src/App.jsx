@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
  import Navbar from "./components/Navbar/Navbar";
+ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 function App() {
   return (
@@ -19,7 +20,22 @@ function App() {
     return (
       <>
         <Navbar />
-        <Routes>{/* your routes here */}</Routes>
+        <Route
+          path="/account"
+          element={
+            <ProtectedRoute>
+              <Account />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/orders"
+          element={
+            <ProtectedRoute>
+              <Orders />
+            </ProtectedRoute>
+          }
+        />
       </>
     );
   }
