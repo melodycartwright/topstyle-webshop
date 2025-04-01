@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
+ import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
@@ -12,6 +13,17 @@ function App() {
       </Routes>
     </Router>
   );
+ 
+
+  function App() {
+    return (
+      <>
+        <Navbar />
+        <Routes>{/* your routes here */}</Routes>
+      </>
+    );
+  }
+
 }
 
 export default App;
