@@ -1,45 +1,55 @@
 .account-page {
+    max-width: 500px;
+    margin: 4rem auto;
     padding: 2rem;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    font-family: 'Inter', sans-serif;
 }
 
 .account-page h2 {
-    font-family: "Playfair Display", serif;
-    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #111;
 }
 
 .account-form {
-    background: #f7f7f7;
-    border: 1px solid #e0dfd9;
-    border-radius: 10px;
-    padding: 2rem;
-    max-width: 500px;
-    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .account-form label {
-    display: block;
-    margin-bottom: 0.3rem;
-    font-weight: bold;
+    font-weight: 600;
+    color: #333;
 }
 
 .account-form input {
-    width: 100%;
-    padding: 0.6rem;
-    margin-bottom: 1rem;
-    border: 1px solid #cbc7be;
-    border-radius: 5px;
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #fff;
+}
+
+.account-form input:focus {
+    border-color: #cbc7be;
+    outline: none;
 }
 
 .account-form button {
+    padding: 0.8rem;
     background-color: #cbc7be;
+    color: black;
     border: none;
-    padding: 0.7rem 1.2rem;
-    color: #111;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .account-form button:hover {
-    background-color: #e0dfd9;
+    background-color: #e3e4dd;
 }

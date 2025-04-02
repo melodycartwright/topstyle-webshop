@@ -17,7 +17,8 @@
 .hero h1 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
-  color: #94928f;
+color: #3e3e3e;
+font-family: 'Playfair Display', serif;
 }
 
 .hero p {
@@ -53,4 +54,31 @@ button:active {
     background-color: #e0dfd9;
     /* cream pressed effect */
     transform: scale(0.98);
+}
+.category-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem 0;
+    justify-content: center;
+}
+
+.category-filter button {
+    background-color: #cbc7be;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.category-filter button:hover {
+    background-color: #e0dfd9;
+}
+
+.category-filter button.active {
+    background-color: #e3e4dd;
+    font-weight: bold;
 }

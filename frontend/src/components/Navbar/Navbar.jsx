@@ -10,7 +10,6 @@ const Navbar = () => {
 
   const { user } = useSelector((state) => state.auth);
   const { items } = useSelector((state) => state.cart);
-
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
 
   const handleLogout = () => {
@@ -20,13 +19,15 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-     <Link to="/" className="navbar-logo">TopStyle</Link>
-
+      <Link to="/" className="navbar-logo">
+        TopStyle
+      </Link>
 
       <ul className="navbar-links">
         <li>
           <Link to="/">Home</Link>
         </li>
+
         {user ? (
           <>
             <li>
