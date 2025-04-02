@@ -14,15 +14,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Routes
+// ✅ Register your routes here (not inside any other function)
 app.use("/api/auth", authRoutes);
+app.use("/api/products", productRoutes);
 
+// ✅ Simple test route
 app.get("/", (req, res) => {
   res.send("API is running 🎉");
-  
-
-  app.use("/api/products", productRoutes);
-
 });
 
 const PORT = process.env.PORT || 5000;
