@@ -1,0 +1,40 @@
+.cart-page {
+    padding: 2rem;
+}
+
+.cart-page ul {
+    list-style: none;
+    padding: 0;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9f9f9;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+}
+
+.cart-item button {
+    background: #111;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.cart-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.cart-buttons button {
+    background: #111;
+    color: white;
+    padding: 0.7rem 1.2rem;
+    border: none;
+    cursor: pointer;
+}

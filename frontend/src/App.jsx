@@ -1,36 +1,24 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home/Home";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
- import Navbar from "./components/Navbar/Navbar";
- import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
-import Home from "./pages/Home/Home";
+import Cart from "./pages/Cart/Cart";
+import Orders from "./pages/Orders/Orders";
+import Account from "./pages/Account/Account";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import Navbar from "./components/Navbar/Navbar";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
+
 function App() {
   return (
     <Router>
+      <Navbar />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-
-        <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/product/:id" element={<ProductDetail />} />
-      </Routes>
-    </Router>
-  );
- 
-
-  function App() {
-    return (
-      <>
-        <Navbar />
-        <Route
-          path="/account"
-          element={
-            <ProtectedRoute>
-              <Account />
-            </ProtectedRoute>
-          }
-        />
         <Route
           path="/orders"
           element={
@@ -39,10 +27,17 @@ function App() {
             </ProtectedRoute>
           }
         />
-      </>
-    );
-  }
-
+        <Route
+          path="/account"
+          element={
+            <ProtectedRoute>
+              <Account />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
