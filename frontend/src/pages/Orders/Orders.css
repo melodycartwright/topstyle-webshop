@@ -1,16 +1,29 @@
 .orders-page {
-    padding: 2rem;
+    padding: 3rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+}
+
+.orders-page h2 {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .order-card {
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    padding: 1rem;
-    margin-bottom: 1rem;
+    background: #fff;
+    padding: 1.5rem;
+    border: 1px solid #e3e4dd;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
 }
 
 .order-items {
-    list-style: none;
-    padding-left: 1rem;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
+    padding-left: 1.2rem;
+}
+
+.order-items li {
+    list-style: disc;
 }

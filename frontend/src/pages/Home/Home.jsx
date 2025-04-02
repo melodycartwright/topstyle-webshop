@@ -8,7 +8,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const {
     items: products,
-    isLoading,
+    loading,
     error,
   } = useSelector((state) => state.products);
 
@@ -16,14 +16,20 @@ const Home = () => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  if (isLoading) return <p>Loading products...</p>;
-  if (error) return <p>Error: {error}</p>;
-
   return (
-    <div className="product-grid">
-      {products.map((product) => (
-        <ProductCard product={product} key={product._id} />
-      ))}
+    <div className="home">
+      <div className="hero">
+        <h1>Discover Your Style</h1>
+        <p>Shop the latest fashion in comfort and elegance.</p>
+      </div>
+
+      <div className="product-grid">
+        {loading && <p>Loading products...</p>}
+        {error && <p>Error: {error}</p>}
+        {products.map((product) => (
+          <ProductCard key={product._id} product={product} />
+        ))}
+      </div>
     </div>
   );
 };

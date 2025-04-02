@@ -2,15 +2,44 @@
     padding: 2rem;
 }
 
-.account-info {
-    background: #f9f9f9;
-    padding: 1.5rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+.account-page h2 {
+    font-family: "Playfair Display", serif;
+    margin-bottom: 1rem;
+}
+
+.account-form {
+    background: #f7f7f7;
+    border: 1px solid #e0dfd9;
+    border-radius: 10px;
+    padding: 2rem;
+    max-width: 500px;
     margin-top: 1rem;
 }
 
-.account-info p {
-    font-size: 1.1rem;
-    margin-bottom: 0.7rem;
+.account-form label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+}
+
+.account-form input {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    border: 1px solid #cbc7be;
+    border-radius: 5px;
+}
+
+.account-form button {
+    background-color: #cbc7be;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    color: #111;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.account-form button:hover {
+    background-color: #e0dfd9;
 }

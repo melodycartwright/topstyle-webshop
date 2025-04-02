@@ -1,38 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "../../features/cart/cartSlice";
 import "./ProductDetail.css";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const [product, setProduct] = useState(null);
-  const [error, setError] = useState(null);
+  const product = useSelector((state) =>
+    state.products.items.find((item) => item._id === id)
+  );
 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:5000/api/products/${id}`)
-      .then((res) => setProduct(res.data))
-      .catch(() => setError("Product not found"));
-  }, [id]);
-
-  const handleAddToCart = () => {
-    dispatch(addToCart(product));
-  };
-
-  if (error) return <p>{error}</p>;
-  if (!product) return <p>Loading product...</p>;
+  if (!product) return <p>Product not found</p>;
 
   return (
     <div className="product-detail">
       <img src={product.image} alt={product.title} />
-      <div className="product-info">
+      <div>
         <h2>{product.title}</h2>
         <p>{product.description}</p>
-        <p className="price">${product.price}</p>
-        <button onClick={handleAddToCart}>Add to Cart</button>
+        <h3>${product.price.toFixed(2)}</h3>
+        <button onClick={() => dispatch(addToCart(product))}>
+          Add to Cart
+        </button>
       </div>
     </div>
   );

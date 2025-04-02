@@ -1,31 +1,33 @@
-import React, { useEffect, useState } from "react";
-import orderService from "../../features/orders/orderService";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchOrders } from "../../features/orders/ordersSlice";
 import "./Orders.css";
 
 const Orders = () => {
-  const [orders, setOrders] = useState([]);
+  const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
+  const { orders, isLoading, isError, errorMessage } = useSelector(
+    (state) => state.orders
+  );
 
   useEffect(() => {
-    const fetchOrders = async () => {
-      try {
-        const data = await orderService.getMyOrders(user.token);
-        setOrders(data);
-      } catch (err) {
-        console.error("Failed to load orders", err);
-      }
-    };
-
-    fetchOrders();
-  }, [user.token]);
+    if (user?.token) {
+      dispatch(fetchOrders(user.token));
+    }
+  }, [dispatch, user]);
 
   return (
     <div className="orders-page">
       <h2>My Orders</h2>
-      {orders.length === 0 ? (
+
+      {isLoading && <p>Loading your orders...</p>}
+      {isError && <p className="error-message">Error: {errorMessage}</p>}
+
+      {!isLoading && orders.length === 0 && (
         <p>You haven't placed any orders yet.</p>
-      ) : (
+      )}
+
+      {!isLoading && orders.length > 0 && (
         <ul>
           {orders.map((order) => (
             <li key={order._id} className="order-card">

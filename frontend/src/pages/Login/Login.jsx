@@ -4,10 +4,11 @@ import { login } from "../../features/auth/authSlice";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
-export default function Login() {
-  const [form, setForm] = useState({ email: "", password: "" });
+const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [form, setForm] = useState({ email: "", password: "" });
 
   const { isLoading, error } = useSelector((state) => state.auth);
 
@@ -24,30 +25,34 @@ export default function Login() {
   };
 
   return (
-    <div className="login-container">
+    <div className="auth-page">
       <h2>Login</h2>
       {error && <p className="error">{error}</p>}
       <form onSubmit={handleSubmit}>
+        <label>Email</label>
         <input
           type="email"
           name="email"
-          placeholder="Email"
           value={form.email}
           onChange={handleChange}
           required
         />
+
+        <label>Password</label>
         <input
           type="password"
           name="password"
-          placeholder="Password"
           value={form.password}
           onChange={handleChange}
           required
         />
+
         <button type="submit" disabled={isLoading}>
           {isLoading ? "Logging in..." : "Login"}
         </button>
       </form>
     </div>
   );
-}
+};
+
+export default Login;

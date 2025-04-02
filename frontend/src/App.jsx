@@ -8,7 +8,7 @@ import Account from "./pages/Account/Account";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Navbar from "./components/Navbar/Navbar";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
-
+import "./App.css";
 function App() {
   return (
     <Router>

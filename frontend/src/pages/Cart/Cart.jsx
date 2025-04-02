@@ -52,7 +52,7 @@ export default function Cart() {
                   <span>
                     {product.title} (${product.price}) × {quantity}
                   </span>
-                  <button onClick={() => dispatch(removeFromCart(product._id))}>
+                  <button className="btn" onClick={() => dispatch(removeFromCart(product._id))}>
                     Remove
                   </button>
                 </div>
