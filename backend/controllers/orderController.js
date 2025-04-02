@@ -19,3 +19,14 @@ export const placeOrder = async (req, res) => {
     res.status(500).json({ message: "Failed to place order" });
   }
 };
+
+export const getMyOrders = async (req, res) => {
+  try {
+    const orders = await Order.find({ user: req.user.id }).populate(
+      "items.product"
+    );
+    res.json(orders);
+  } catch (err) {
+    res.status(500).json({ message: "Failed to fetch orders" });
+  }
+};
