@@ -29,6 +29,12 @@
     transition: background 0.3s;
 }
 
+.product-detail-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
 .product-detail button:hover {
     background-color: #e0dfd9;
 }

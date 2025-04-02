@@ -7,6 +7,7 @@ import Orders from "./pages/Orders/Orders";
 import Account from "./pages/Account/Account";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer"; 
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import "./App.css";
 function App() {
@@ -36,6 +37,7 @@ function App() {
           }
         />
       </Routes>
+      <Footer />
     </Router>
   );
 }

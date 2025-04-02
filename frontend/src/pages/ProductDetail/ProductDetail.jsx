@@ -15,7 +15,8 @@ const ProductDetail = () => {
 
   return (
     <div className="product-detail">
-      <img src={product.image} alt={product.title} />
+      <img src={`http://localhost:5000${product.image}`} alt={product.title} />
+
       <div>
         <h2>{product.title}</h2>
         <p>{product.description}</p>
