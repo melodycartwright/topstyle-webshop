@@ -1,3 +1,5 @@
+// Main server file  
+//Loads all routes, connects to MongoDB, sets up middleware, and serves static images.
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";

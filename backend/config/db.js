@@ -1,3 +1,5 @@
+// Set up for MongoDB  
+//Connects to the database using mongoose and shows a message when connected.
 import mongoose from "mongoose";
 const connectDB = async() => {
     try {
