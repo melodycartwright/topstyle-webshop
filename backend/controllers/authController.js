@@ -69,7 +69,7 @@ export const updateUserProfile = async (req, res) => {
 };
 
 
-// Add this at the bottom of your authController.js
+
 export const getUserProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");
