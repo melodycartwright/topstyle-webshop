@@ -79,7 +79,7 @@ arduino
 Copy
 Edit
 npm run dev
-Now the app should be running at http://localhost:5173 for the frontend and http://localhost:5000 for the backend.
+Now the app should be running at http://localhost:5173 for the frontend and https://topstyle-webshop.onrender.com for the backend.
 
 Folder Structure
 bash
