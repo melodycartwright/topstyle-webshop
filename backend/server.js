@@ -23,7 +23,7 @@ const __dirname = path.dirname(__filename);
 
 // Middleware
 app.use(
-  cors({ origin: "https://topstyleshop.netlify.app", credentials: true })
+  cors({ origin: "https://topstyleshop.netlify.app", credentials: true, })
 );
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "public/images")));
