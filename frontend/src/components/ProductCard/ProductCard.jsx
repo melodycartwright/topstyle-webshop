@@ -17,7 +17,9 @@ const ProductCard = ({ product }) => {
     <Link to={`/product/${product._id}`} className="product-card-link">
       <div className="product-card">
         <img
-          src={`${import.meta.env.VITE_API_BASE_URL}${product.image}`}
+          src={`${import.meta.env.VITE_API_BASE_URL.replace("/api", "")}${
+            product.image
+          }`}
           alt={product.title}
         />
 

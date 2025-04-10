@@ -15,7 +15,12 @@ const ProductDetail = () => {
 
   return (
     <div className="product-detail">
-      <img src={`${import.meta.env.VITE_API_BASE_URL}${product.image}`} alt={product.title} />
+      <img
+        src={`${import.meta.env.VITE_API_BASE_URL.replace("/api", "")}${
+          product.image
+        }`}
+        alt={product.title}
+      />
 
       <div>
         <h2>{product.title}</h2>

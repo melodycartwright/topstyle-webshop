@@ -45,13 +45,12 @@ const Orders = () => {
                 product ? (
                   <div key={product._id} className="order-item">
                     <img
-                      src={`${import.meta.env.VITE_API_BASE_URL}${
-                        product.image
-                      }`}
+                      src={`${import.meta.env.VITE_API_BASE_URL.replace(
+                        "/api",
+                        ""
+                      )}${product.image}`}
                       alt={product.title}
-                      className="order-product-img"
-                    />
-
+                    className="order-product-img" />
                     <div className="item-info">
                       <p>{product.title}</p>
                       <p>Quantity: {quantity}</p>
