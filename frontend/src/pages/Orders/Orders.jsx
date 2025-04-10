@@ -45,7 +45,9 @@ const Orders = () => {
                 product ? (
                   <div key={product._id} className="order-item">
                     <img
-                      src={`http://localhost:5000${product.image}`}
+                      src={`${import.meta.env.VITE_API_BASE_URL}${
+                        product.image
+                      }`}
                       alt={product.title}
                       className="order-product-img"
                     />
