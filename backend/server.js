@@ -20,10 +20,25 @@ const app = express();
 // Required for working with __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const allowedOrigins = [
+  "http://localhost:5173", // Vite default
+  "http://localhost:5174", // sometimes Vite uses this port
+  "https://topstyleshop.netlify.app", // your deployed frontend
+];
 
-// Middleware
 app.use(
-  cors({ origin: "https://topstyleshop.netlify.app", credentials: true, })
+  cors({
+    origin: function (origin, callback) {
+      // allow requests with no origin (like mobile apps, curl, Postman)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      } else {
+        return callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
 );
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "public/images")));
