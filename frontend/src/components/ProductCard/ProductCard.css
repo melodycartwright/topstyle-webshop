@@ -13,8 +13,9 @@
 }
 
 .product-card img {
-   aspect-ratio: 1/1;
-   object-fit: cover;
+    max-width: 100%;
+    height: auto;
+    border-radius: 3px;
 }
 
 .product-card h3 {
