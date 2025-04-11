@@ -10,8 +10,6 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    width: 100%;
-    /* Let the grid decide width */
 }
 
 .product-card:hover {
@@ -19,22 +17,22 @@
 }
 
 .product-card img {
-    width: 100%;
-    height: 250px;
+    max-width: 100%;
+    height: 260px;
+    /* Set consistent height */
     object-fit: cover;
-    border-radius: 4px;
+    /* Prevent stretching */
+    border-radius: 3px;
 }
 
 .product-card h3 {
     font-size: 1.1rem;
-    margin: 0.75rem 0 0.3rem;
-    font-weight: 600;
+    margin: 0.5rem 0;
 }
 
 .product-card p {
-    margin-bottom: 0.5rem;
     color: #333;
-    font-size: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .product-card button {
@@ -44,17 +42,27 @@
     border: none;
     border-radius: 4px;
     margin-top: auto;
-    cursor: pointer;
 }
 
-.product-card button:hover {
+/* Button styles */
+button {
     background-color: #cbc7be;
+    color: black;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Optional: Responsive spacing on grid layout */
-.product-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    justify-content: center;
+button:hover {
+    background-color: #e3e4dd;
+    transform: scale(1.03);
+}
+
+button:active {
+    background-color: #e0dfd9;
+    transform: scale(0.98);
 }
