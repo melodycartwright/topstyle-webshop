@@ -10,8 +10,8 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    max-width: 300px;
-    margin: 0 auto;
+    width: 100%;
+    /* Let the grid decide width */
 }
 
 .product-card:hover {
