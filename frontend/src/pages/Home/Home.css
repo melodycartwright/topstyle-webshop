@@ -28,11 +28,11 @@ font-family: 'Playfair Display', serif;
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
-  justify-items: center;
-  align-items: start;
-  padding: 2rem 1rem;
+  padding: 2rem;
+  align-items: stretch;
+  /* Ensure cards align properly */
 }
 button {
     background-color: #cbc7be;
