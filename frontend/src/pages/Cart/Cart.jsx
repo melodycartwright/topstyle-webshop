@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart, clearCart } from "../../features/cart/cartSlice";
+import { toast } from "react-toastify";
 import orderService from "../../features/orders/orderService";
 import "./Cart.css";
 
@@ -16,7 +17,7 @@ export default function Cart() {
 
   const handleCheckout = async () => {
     if (!user) {
-      alert("You must be logged in to place an order.");
+      toast.error("You must be logged in to place an order.");
       return;
     }
 
@@ -30,11 +31,11 @@ export default function Cart() {
 
     try {
       await orderService.placeOrder(orderData, user.token);
-      alert("🎉 Order placed successfully!");
+      toast.success("🎉 Order placed successfully!");
       dispatch(clearCart());
     } catch (err) {
       console.error(err);
-      alert("❌ Failed to place order.");
+      toast.error("❌ Failed to place order.");
     }
   };
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import accountService from "../../features/account/accountService";
+import { toast } from "react-toastify";
 import "./Account.css";
 
 const Account = () => {
@@ -13,10 +14,10 @@ const Account = () => {
     e.preventDefault();
     try {
       await accountService.updateProfile({ name, email, password }, user.token);
-      alert("✅ Profile updated!");
+      toast.success("✅ Profile updated!");
     } catch (err) {
       console.error(err);
-      alert("❌ Update failed.");
+      toast.error("❌ Update failed.");
     }
   };
 

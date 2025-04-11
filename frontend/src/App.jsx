@@ -10,6 +10,8 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer"; 
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import "./App.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <Router>
@@ -38,6 +40,7 @@ function App() {
         />
       </Routes>
       <Footer />
+      <ToastContainer position="top-right" autoClose={3000} />
     </Router>
   );
 }
