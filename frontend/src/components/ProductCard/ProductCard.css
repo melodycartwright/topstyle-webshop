@@ -37,6 +37,34 @@
     font-size: 1rem;
 }
 
+.size-selection {
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.size-selection label {
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.size-dropdown {
+    padding: 0.3rem 0.5rem;
+    border: 1px solid #cbc7be;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.size-dropdown:focus {
+    outline: none;
+    border-color: #a5a09a;
+}
+
 .product-card button {
     background-color: #e0dfd9;
     color: #000;

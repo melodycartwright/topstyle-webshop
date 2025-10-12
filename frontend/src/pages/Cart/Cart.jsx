@@ -1,6 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeFromCart, clearCart } from "../../features/cart/cartSlice";
+import {
+  removeFromCart,
+  updateQuantity,
+  clearCart,
+} from "../../features/cart/cartSlice";
 import { toast } from "react-toastify";
 import orderService from "../../features/orders/orderService";
 import "./Cart.css";
@@ -25,6 +29,7 @@ export default function Cart() {
       items: items.map((item) => ({
         product: item.product._id,
         quantity: item.quantity,
+        size: item.selectedSize,
       })),
       total,
     };
@@ -47,13 +52,48 @@ export default function Cart() {
       ) : (
         <>
           <ul>
-            {items.map(({ product, quantity }) => (
-              <li key={product._id}>
+            {items.map((item) => (
+              <li key={item.cartId}>
                 <div className="cart-item">
-                  <span>
-                    {product.title} (${product.price}) × {quantity}
-                  </span>
-                  <button className="btn" onClick={() => dispatch(removeFromCart(product._id))}>
+                  <img
+                    src={`${import.meta.env.VITE_API_BASE_URL.replace(
+                      "/api",
+                      ""
+                    )}${item.product.image}`}
+                    alt={item.product.title}
+                    className="cart-item-image"
+                  />
+                  <div className="cart-item-details">
+                    <h3>{item.product.title}</h3>
+                    {item.selectedSize && (
+                      <p className="item-size">Size: {item.selectedSize}</p>
+                    )}
+                    <p className="item-price">${item.product.price}</p>
+                    <div className="quantity-controls">
+                      <label>Quantity:</label>
+                      <select
+                        value={item.quantity}
+                        onChange={(e) =>
+                          dispatch(
+                            updateQuantity({
+                              cartId: item.cartId,
+                              quantity: parseInt(e.target.value),
+                            })
+                          )
+                        }
+                      >
+                        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
+                          <option key={num} value={num}>
+                            {num}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                  <button
+                    className="btn remove-btn"
+                    onClick={() => dispatch(removeFromCart(item.cartId))}
+                  >
                     Remove
                   </button>
                 </div>

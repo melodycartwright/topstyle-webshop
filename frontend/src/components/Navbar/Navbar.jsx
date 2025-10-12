@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../features/auth/authSlice";
+import CartDropdown from "../CartDropdown/CartDropdown";
 import "./Navbar.css";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const { user } = useSelector((state) => state.auth);
   const { items } = useSelector((state) => state.cart);
@@ -15,6 +17,15 @@ const Navbar = () => {
   const handleLogout = () => {
     dispatch(logout());
     navigate("/login");
+  };
+
+  const toggleCart = (e) => {
+    e.preventDefault();
+    setIsCartOpen(!isCartOpen);
+  };
+
+  const closeCart = () => {
+    setIsCartOpen(false);
   };
 
   return (
@@ -37,12 +48,12 @@ const Navbar = () => {
               <Link to="/orders">Orders</Link>
             </li>
             <li className="cart-link">
-              <Link to="/cart" className="cart-icon">
+              <button onClick={toggleCart} className="cart-icon">
                 🛒
                 {totalItems > 0 && (
                   <span className="cart-count">{totalItems}</span>
                 )}
-              </Link>
+              </button>
             </li>
             <li>
               <button onClick={handleLogout} className="logout-btn">
@@ -59,16 +70,17 @@ const Navbar = () => {
               <Link to="/register">Register</Link>
             </li>
             <li className="cart-link">
-              <Link to="/cart" className="cart-icon">
+              <button onClick={toggleCart} className="cart-icon">
                 🛒
                 {totalItems > 0 && (
                   <span className="cart-count">{totalItems}</span>
                 )}
-              </Link>
+              </button>
             </li>
           </>
         )}
       </ul>
+      <CartDropdown isOpen={isCartOpen} onClose={closeCart} />
     </nav>
   );
 };
