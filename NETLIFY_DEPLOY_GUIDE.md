@@ -25,7 +25,7 @@
 
 ```
 Base directory: frontend
-Build command: npm run build  
+Build command: npm run build
 Publish directory: dist
 ```
 
