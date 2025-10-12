@@ -23,6 +23,9 @@ const __dirname = path.dirname(__filename);
 const allowedOrigins = [
   "http://localhost:5173", // Vite default
   "http://localhost:5174", // sometimes Vite uses this port
+  "http://localhost:5175", // alternative port
+  "http://localhost:5176", // alternative port
+  "http://localhost:5177", // alternative port
   "https://topstyleshop.netlify.app", // your deployed frontend
 ];
 
@@ -34,10 +37,13 @@ app.use(
       if (allowedOrigins.includes(origin)) {
         return callback(null, true);
       } else {
+        console.log("CORS blocked origin:", origin);
         return callback(new Error("Not allowed by CORS"));
       }
     },
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'X-Requested-With', 'Accept'],
   })
 );
 app.use(express.json());

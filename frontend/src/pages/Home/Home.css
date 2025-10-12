@@ -1,109 +1,163 @@
 .home {
   background-color: #f7f7f7;
-  padding: 2rem;
+  padding: 1rem;
   font-family: 'Poppins', sans-serif;
   color: #000000;
+  min-height: 100vh;
 }
 
 .hero {
- 
-  padding: 2rem 2rem;
+  padding: 1.5rem 1rem;
   text-align: center;
- 
-  margin-bottom: 2rem;
-
+  margin-bottom: 1.5rem;
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: 2rem;
   margin-bottom: 0.5rem;
-color: #3e3e3e;
-font-family: 'Playfair Display', serif;
+  color: #3e3e3e;
+  font-family: 'Playfair Display', serif;
+  line-height: 1.2;
 }
 
 .hero p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #555;
+  margin: 0;
 }
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 280px));
-  gap: 2rem;
-  padding: 2rem;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 1rem;
   justify-content: center;
   align-items: stretch;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 }
+
 button {
-    background-color: #cbc7be;
-    /* taupe beige */
-    color: black;
-    border: none;
-    padding: 0.6rem 1.2rem;
-    font-size: 1rem;
-    font-weight: 500;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: #cbc7be;
+  /* taupe beige */
+  color: black;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #e3e4dd;
-    /* soft sage hover effect */
-    transform: scale(1.03);
+  background-color: #e3e4dd;
+  /* soft sage hover effect */
+  transform: scale(1.03);
 }
 
 button:active {
-    background-color: #e0dfd9;
-    /* cream pressed effect */
-    transform: scale(0.98);
+  background-color: #e0dfd9;
+  /* cream pressed effect */
+  transform: scale(0.98);
 }
+
 .category-filter {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin: 2rem 0;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+  justify-content: center;
+  padding: 0 1rem;
 }
 
 .category-filter button {
-    background-color: #cbc7be;
-    border: none;
-    padding: 0.5rem 1.2rem;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  background-color: #cbc7be;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
 }
 
 .category-filter button:hover {
-    background-color: #e0dfd9;
+  background-color: #e0dfd9;
 }
 
 .category-filter button.active {
-    background-color: #e3e4dd;
-    font-weight: bold;
+  background-color: #e3e4dd;
+  font-weight: bold;
 }
 
-/* Responsive grid adjustments */
-@media (max-width: 768px) {
-    .product-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-        padding: 1rem;
-    }
-    
-    .home {
-        padding: 1rem;
-    }
+/* Mobile-first responsive design */
+@media (min-width: 480px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.8rem;
+  }
 }
 
-@media (max-width: 480px) {
-    .product-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
+@media (min-width: 768px) {
+  .home {
+    padding: 1.5rem;
+  }
+  
+  .hero {
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+  }
+  
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+  
+  .category-filter {
+    margin: 2rem 0;
+    gap: 1rem;
+  }
+  
+  .category-filter button {
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .home {
+    padding: 2rem;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+  }
+  
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 3rem;
+  }
 }

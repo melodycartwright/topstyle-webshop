@@ -1,10 +1,18 @@
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
   background-color: #e9e8e2;
   color: #000000;
   font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -15,4 +23,36 @@ a {
 button {
   font-family: inherit;
   cursor: pointer;
+  min-height: 44px; /* Touch-friendly minimum size */
+  min-width: 44px;
+}
+
+/* Ensure responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mobile-first container */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Touch-friendly interactive elements */
+select, input[type="text"], input[type="email"], input[type="password"] {
+  min-height: 44px;
+  font-size: 16px; /* Prevents zoom on iOS */
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
+  
+  select, input[type="text"], input[type="email"], input[type="password"] {
+    font-size: 14px;
+  }
 }
