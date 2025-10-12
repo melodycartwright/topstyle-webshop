@@ -65,9 +65,7 @@ const ProductCard = ({ product }) => {
         <Link to={`/product/${product._id}`} className="product-title-link">
           <h3>{product.title}</h3>
         </Link>
-        <p className="product-price">
-          ${parseFloat(product.price).toFixed(2)}
-        </p>
+        <p className="product-price">${parseFloat(product.price).toFixed(2)}</p>
 
         <div className="size-selection" onClick={(e) => e.stopPropagation()}>
           <label htmlFor={`size-${product._id}`}>Size:</label>

@@ -1,4 +1,4 @@
-// Main server file  
+// Main server file
 //Loads all routes, connects to MongoDB, sets up middleware, and serves static images.
 import express from "express";
 import dotenv from "dotenv";
@@ -42,16 +42,18 @@ app.use(
       }
     },
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'X-Requested-With', 'Accept'],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "Origin",
+      "X-Requested-With",
+      "Accept",
+    ],
   })
 );
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "public/images")));
-
-
-
-
 
 // ✅ API routes
 app.use("/api/auth", authRoutes);

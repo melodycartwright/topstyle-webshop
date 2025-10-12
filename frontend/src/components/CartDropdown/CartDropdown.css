@@ -251,33 +251,33 @@
         width: 100vw;
         border-radius: 0;
     }
-    
+
     .cart-dropdown-header {
         padding: 1.25rem;
     }
-    
+
     .cart-dropdown-header h3 {
         font-size: 1.2rem;
     }
-    
+
     .cart-dropdown-content {
         padding: 1.25rem;
     }
-    
+
     .cart-item {
         gap: 1rem;
     }
-    
+
     .cart-item-image {
         width: 60px;
         height: 60px;
     }
-    
+
     .cart-actions {
         flex-direction: column;
         gap: 0.75rem;
     }
-    
+
     .view-cart-btn,
     .checkout-btn {
         padding: 0.875rem 1rem;
