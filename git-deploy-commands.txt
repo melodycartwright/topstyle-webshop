@@ -1,0 +1,25 @@
+# Git Commands for Deployment
+
+# 1. Add all changes
+git add .
+
+# 2. Commit with descriptive message
+git commit -m "feat: Add size selection, dropdown cart, and improved UX
+
+- Add size selection dropdown to ProductCard with XS-XL sizes
+- Implement dropdown cart component in navbar (right side)
+- Update cart slice to handle product sizes with unique cartId
+- Fix image display issues with proper URL construction
+- Improve cart page layout with images and size display
+- Add quantity controls and remove functionality
+- Create Netlify configuration files for deployment
+- Add production environment variable templates
+- Fix CSS typo in ProductCard flex-wrap property
+- Add SPA routing support with _redirects file"
+
+# 3. Push to GitHub
+git push origin master
+
+# 4. Optional: Create a release tag
+git tag -a v2.0.0 -m "Version 2.0.0 - Size selection and dropdown cart features"
+git push origin v2.0.0
